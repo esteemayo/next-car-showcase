@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       disabled={false}
-      type={btnType}
+      type={btnType || 'button'}
       className={`custom-btn ${containerStyles}`}
       onClick={onClick}
     >
