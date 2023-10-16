@@ -1,3 +1,5 @@
+import { Button } from '.';
+
 const Hero = () => {
   return (
     <div className='hero'>
@@ -9,6 +11,7 @@ const Hero = () => {
           Streamline your car rental and experience with our effortless booking
           process.
         </p>
+        <Button />
       </div>
     </div>
   );
