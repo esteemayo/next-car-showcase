@@ -2,9 +2,7 @@
 
 import { FC } from 'react';
 
-import Navbar from './Navbar';
-import Footer from './Footer';
-
+import { Footer, Navbar } from '.';
 import { LayoutProps } from '@/types';
 
 const Layout: FC<LayoutProps> = ({ children }) => {
