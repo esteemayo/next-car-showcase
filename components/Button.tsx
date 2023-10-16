@@ -5,11 +5,16 @@ import Image from 'next/image';
 
 import { ButtonProps } from '@/types';
 
-const Button: FC<ButtonProps> = ({ title, containerStyles, onClick }) => {
+const Button: FC<ButtonProps> = ({
+  title,
+  btnType,
+  containerStyles,
+  onClick,
+}) => {
   return (
     <button
       disabled={false}
-      type='button'
+      type={btnType}
       className={`custom-btn ${containerStyles}`}
       onClick={onClick}
     >
