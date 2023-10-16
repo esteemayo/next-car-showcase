@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useMemo } from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   const copyrightLabel = useMemo(() => {
