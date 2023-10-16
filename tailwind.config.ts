@@ -26,8 +26,8 @@ const config: Config = {
         grey: '#747A88',
       },
       backgroundImage: {
-        pattern: "url('/pattern.png')",
-        'hero-bg': "url('/hero-bg.png')",
+        pattern: "url('/img/pattern.png')",
+        'hero-bg': "url('/img/hero-bg.png')",
       },
     },
   },
