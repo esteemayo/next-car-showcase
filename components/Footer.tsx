@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import Image from 'next/image';
 
+import { footerLinks } from '@/constants';
+
 const Footer = () => {
   const copyrightLabel = useMemo(() => {
     const date = new Date();
@@ -20,10 +22,28 @@ const Footer = () => {
             alt='logo'
             className='object-contain'
           />
-          <div className='text-base text-gray-700'>
+          <p className='text-base text-gray-700'>
             Carbub {copyrightLabel}
             <br /> All right reserved &copy;
-          </div>
+          </p>
+        </div>
+        <div className='footer__links'>
+          {footerLinks.map((item) => {
+            const { links, title } = item;
+            return (
+              <div key={title} className='footer__link'>
+                <h3 className='font-bold'>{title}</h3>
+                {links.map((link) => {
+                  const { title, url } = link;
+                  return (
+                    <Link key={title} href={url} className='text-gray-500'>
+                      {title}
+                    </Link>
+                  );
+                })}
+              </div>
+            );
+          })}
         </div>
       </div>
     </footer>
