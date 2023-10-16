@@ -1,4 +1,8 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, ReactNode } from 'react';
+
+export interface LayoutProps {
+  children: ReactNode;
+}
 
 export interface ButtonProps {
   title: string;
