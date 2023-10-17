@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { FC, useMemo } from 'react';
 
 import { CarProps } from '@/types';
+import { useCarModal } from '@/hooks/useCarModal';
 import { calculateCarRent } from '@/utils';
+
 import { Button } from './';
 
 interface CarCardProps {
@@ -13,6 +15,7 @@ interface CarCardProps {
 
 const CarCard: FC<CarCardProps> = ({ car }) => {
   const { city_mpg, drive, make, model, transmission, year } = car;
+  const onOpen = useCarModal((state) => state.onOpen);
 
   const carRent = useMemo(() => {
     return calculateCarRent(city_mpg, year);
@@ -69,7 +72,7 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
             containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/svg/right-arrow.svg'
-            onClick={() => {}}
+            onClick={onOpen}
           />
         </div>
       </div>
