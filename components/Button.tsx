@@ -1,7 +1,6 @@
 'use client';
 
 import { FC } from 'react';
-
 import { ButtonProps } from '@/types';
 
 const Button: FC<ButtonProps> = ({
