@@ -9,6 +9,9 @@ export interface ButtonProps {
   containerStyles?: string;
   onClick?(e: MouseEvent<HTMLButtonElement>): void;
   btnType?: 'button' | 'submit';
+  textStyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
 }
 
 export interface FilterProps {
