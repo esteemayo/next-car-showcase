@@ -7,7 +7,7 @@ import { CarProps } from '@/types';
 import { useCarModal } from '@/hooks/useCarModal';
 import { calculateCarRent } from '@/utils';
 
-import { Button } from './';
+import { Button, CarDetails } from './';
 
 interface CarCardProps {
   car: CarProps;
@@ -76,6 +76,7 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
           />
         </div>
       </div>
+      <CarDetails />
     </div>
   );
 };
