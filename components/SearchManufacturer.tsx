@@ -27,7 +27,7 @@ const SearchManufacturer: FC<SearchManufacturerProps> = ({
     <div className='search-manufacturer'>
       <Combobox>
         <div className='relative w-full'>
-          <Combobox.Button className='absolute top-[14px'>
+          <Combobox.Button className='absolute top-[14px]'>
             <Image
               src='/svg/car-logo.svg'
               width={20}
