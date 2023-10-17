@@ -43,3 +43,8 @@ export interface CarModalStore {
   onOpen(): void;
   onClose(): void;
 }
+
+export interface CarDetailProps {
+  isOpen: boolean;
+  onClose(): void;
+}
