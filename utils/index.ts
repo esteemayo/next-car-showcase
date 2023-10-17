@@ -7,7 +7,7 @@ export const fetchCars = async () => {
   };
 
   const res = await axios.get(
-    'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars',
+    'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla',
     {
       headers,
     }
