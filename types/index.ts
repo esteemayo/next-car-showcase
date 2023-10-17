@@ -10,3 +10,7 @@ export interface ButtonProps {
   onClick?(e: MouseEvent<HTMLButtonElement>): void;
   btnType?: 'button' | 'submit';
 }
+
+export interface FilterProps {
+  title: 'fuel' | 'year';
+}
