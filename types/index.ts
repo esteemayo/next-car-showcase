@@ -37,3 +37,9 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
+
+export interface CarModalStore {
+  isOpen: boolean;
+  onOpen(): void;
+  onClose(): void;
+}
