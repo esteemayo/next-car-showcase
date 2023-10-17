@@ -15,6 +15,9 @@ interface CarCardProps {
 
 const CarCard: FC<CarCardProps> = ({ car }) => {
   const { city_mpg, drive, make, model, transmission, year } = car;
+
+  const isOpen = useCarModal((state) => state.isOpen);
+  const onClose = useCarModal((state) => state.onClose);
   const onOpen = useCarModal((state) => state.onOpen);
 
   const carRent = useMemo(() => {
@@ -76,7 +79,7 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
           />
         </div>
       </div>
-      <CarDetails />
+      <CarDetails car={car} isOpen={isOpen} onClose={onClose} />
     </div>
   );
 };
