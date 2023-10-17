@@ -14,3 +14,8 @@ export interface ButtonProps {
 export interface FilterProps {
   title: 'fuel' | 'year';
 }
+
+export interface SearchManufacturerProps {
+  manufactures: string;
+  setManufacture(manufacturer: string): void;
+}
