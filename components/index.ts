@@ -3,5 +3,6 @@ import Hero from './Hero';
 import Footer from './Footer';
 import SearchBar from './SearchBar';
 import Navbar from './Navbar';
+import Filter from './Filter';
 
-export { Button, Footer, Hero, Navbar, SearchBar };
+export { Button, Filter, Footer, Hero, Navbar, SearchBar };
