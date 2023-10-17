@@ -54,30 +54,21 @@ const SearchManufacturer: FC<SearchManufacturerProps> = ({
       >
         <Combobox>
           <Combobox.Options>
-            {filteredManufacturers.length === 0 && query !== '' ? (
-              <Combobox.Option
-                value={query}
-                className='search-manufacturer__option'
-              >
-                Create "{query}"
-              </Combobox.Option>
-            ) : (
-              filteredManufacturers.map((item) => {
-                return (
-                  <Combobox.Option
-                    key={item}
-                    className={({ active }) =>
-                      `relative search-manufacturer__option ${
-                        active ? 'bg-primary-blue' : 'text-gray-900'
-                      }`
-                    }
-                    value={item}
-                  >
-                    {item}
-                  </Combobox.Option>
-                );
-              })
-            )}
+            {filteredManufacturers.map((item) => {
+              return (
+                <Combobox.Option
+                  key={item}
+                  className={({ active }) =>
+                    `relative search-manufacturer__option ${
+                      active ? 'bg-primary-blue text-white' : 'text-gray-900'
+                    }`
+                  }
+                  value={item}
+                >
+                  {item}
+                </Combobox.Option>
+              );
+            })}
           </Combobox.Options>
         </Combobox>
       </Transition>
