@@ -4,12 +4,14 @@ import SearchBar from './SearchBar';
 import Footer from './Footer';
 import SearchManufacturer from './SearchManufacturer';
 import Navbar from './Navbar';
-import CarCard from './CarCard';
+import CarDetails from './CarDetails';
 import Filter from './Filter';
+import CarCard from './CarCard';
 
 export {
   Button,
   CarCard,
+  CarDetails,
   Filter,
   Footer,
   Hero,
