@@ -49,3 +49,7 @@ export interface CarDetailProps {
   onClose(): void;
   car: CarProps;
 }
+
+export interface SearchButtonProps {
+  otherClasses?: string;
+}
