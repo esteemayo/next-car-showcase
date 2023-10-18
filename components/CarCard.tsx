@@ -5,7 +5,7 @@ import { FC, useMemo } from 'react';
 
 import { CarProps } from '@/types';
 import { useCarModal } from '@/hooks/useCarModal';
-import { calculateCarRent } from '@/utils';
+import { calculateCarRent, generateCarImageUrl } from '@/utils';
 
 import { Button, CarDetails } from './';
 
@@ -42,7 +42,7 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
       </p>
       <div className='relative w-full h-40 my-3 object-contain'>
         <Image
-          src='/img/hero.png'
+          src={generateCarImageUrl(car)}
           alt='car model'
           fill
           priority
