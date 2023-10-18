@@ -14,9 +14,9 @@ export interface ButtonProps {
   isDisabled?: boolean;
 }
 
-export interface FilterProps {
-  title: 'fuel' | 'year';
-}
+// export interface FilterProps {
+//   title: 'fuel' | 'year';
+// }
 
 export interface SearchManufacturerProps {
   manufacturer: string;
