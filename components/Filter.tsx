@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { FilterProps } from '@/types';
 
-const Filter: FC<FilterProps> = ({ title }) => {
+const Filter: FC = ({ title }) => {
   return <div>Filter</div>;
 };
 
