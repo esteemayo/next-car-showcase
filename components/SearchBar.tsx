@@ -45,7 +45,7 @@ const SearchBar = () => {
       return toast.error('Please fill in the search bar');
     }
 
-    return updateSearchParams(model, manufacturer);
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   }, []);
 
   return (
