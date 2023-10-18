@@ -6,6 +6,7 @@ import SearchManufacturer from './SearchManufacturer';
 import Navbar from './Navbar';
 import CarDetails from './CarDetails';
 import Filter from './Filter';
+import SearchButton from './SearchButton';
 import CarCard from './CarCard';
 
 export {
@@ -17,5 +18,6 @@ export {
   Hero,
   Navbar,
   SearchBar,
+  SearchButton,
   SearchManufacturer,
 };
