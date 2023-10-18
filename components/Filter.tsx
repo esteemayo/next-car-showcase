@@ -19,7 +19,10 @@ const Filter: FC<CarFilterProps> = ({ title, options }) => {
 
   return (
     <div className='w-fit'>
-      <Listbox value={selected} onChange={(e) => setSelected(e)}>
+      <Listbox value={selected} onChange={(e) => {
+        setSelected(e);
+        handleUpdateParams(e);
+      }}>
         <div className='relative w-fit z-10'>
           <Listbox.Button className='custom-filter__btn'>
             <span className='block truncate'>{selected.title}</span>
