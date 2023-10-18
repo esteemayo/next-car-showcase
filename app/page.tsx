@@ -1,4 +1,6 @@
 import { fetchCars } from '@/utils';
+import { fuels, yearsOfProduction } from '@/constants';
+
 import { CarCard, Filter, Hero, SearchBar } from '@/components';
 
 const Home = async ({ searchParams }) => {
@@ -23,8 +25,8 @@ const Home = async ({ searchParams }) => {
         <div className='home__filters'>
           <SearchBar />
           <div className='home__filter-container'>
-            <Filter title='fuel' />
-            <Filter title='year' />
+            <Filter title='fuel' options={fuels} />
+            <Filter title='year' options={yearsOfProduction} />
           </div>
         </div>
         {!isDataEmpty ? (
