@@ -43,7 +43,7 @@ const Filter: FC<CarFilterProps> = ({ title, options }) => {
                       }`
                     }
                   >
-                    {({ selected }) => {
+                    {({ selected }) => (
                       <span
                         className={`block truncate ${
                           selected ? 'font-medium' : 'font-normal'
@@ -51,7 +51,7 @@ const Filter: FC<CarFilterProps> = ({ title, options }) => {
                       >
                         {title}
                       </span>;
-                    }}
+                    )}
                   </Listbox.Option>
                 );
               })}
