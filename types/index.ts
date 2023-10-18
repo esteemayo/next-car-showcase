@@ -14,9 +14,14 @@ export interface ButtonProps {
   isDisabled?: boolean;
 }
 
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
 export interface CarFilterProps {
   title: string;
-  options: string;
+  options: OptionProps[];
 }
 
 export interface SearchManufacturerProps {
