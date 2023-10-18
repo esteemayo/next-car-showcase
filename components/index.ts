@@ -8,6 +8,7 @@ import CarDetails from './CarDetails';
 import Filter from './Filter';
 import SearchButton from './SearchButton';
 import CarCard from './CarCard';
+import ShowMore from './ShowMore';
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   SearchBar,
   SearchButton,
   SearchManufacturer,
+  ShowMore,
 };
