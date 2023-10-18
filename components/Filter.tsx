@@ -1,14 +1,24 @@
 'use client';
 
-import { FC, Fragment, useState } from 'react';
+import { FC, Fragment, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Listbox, Transition } from '@headlessui/react';
 
 import { CarFilterProps } from '@/types';
+import { Router } from 'next/router';
 
 const Filter: FC<CarFilterProps> = ({ title, options }) => {
+  const router = useRouter()
   const [selected, setSelected] = useState(options[0]);
+
+  const handleUpdateParams = useCallback((type: string,value: string) => {
+    const searchParams = new URLSearchParams(window.location.search)
+    searchParams.set(type, value)
+    
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`
+    router.push(newPathname)
+  },[router])
 
   return (
     <div className='w-fit'>
