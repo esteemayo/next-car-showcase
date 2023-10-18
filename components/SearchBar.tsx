@@ -2,15 +2,50 @@
 
 import Image from 'next/image';
 import { FormEvent, useCallback, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 import { SearchButton, SearchManufacturer } from './';
 
 const SearchBar = () => {
+  const router = useRouter();
+
   const [model, setModel] = useState('');
   const [manufacturer, setManufacturer] = useState('');
 
+  const updateSearchParams = useCallback(
+    (model: string, manufacturer: string) => {
+      const searchParams = new URLSearchParams(window.location.search);
+
+      if (model) {
+        searchParams.set('model', model);
+      } else {
+        searchParams.delete('model');
+      }
+
+      if (manufacturer) {
+        searchParams.set('manufacturer', manufacturer);
+      } else {
+        searchParams.delete('manufacturer');
+      }
+
+      const newPathname = `${
+        window.location.pathname
+      }?${searchParams.toString()}`;
+
+      router.push(newPathname);
+    },
+    []
+  );
+
   const handleSearch = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (manufacturer === '' && model === '') {
+      return toast.error('Please fill in the search bar');
+    }
+
+    return updateSearchParams(model, manufacturer);
   }, []);
 
   return (
