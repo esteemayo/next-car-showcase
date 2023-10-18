@@ -1,8 +1,14 @@
 import { fetchCars } from '@/utils';
 import { CarCard, Filter, Hero, SearchBar } from '@/components';
 
-const Home = async () => {
-  const allCars = await fetchCars();
+const Home = async ({ searchParams }) => {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || 10,
+    model: searchParams.model || '',
+  });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
