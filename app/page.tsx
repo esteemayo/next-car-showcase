@@ -1,7 +1,7 @@
 import { fetchCars } from '@/utils';
 import { fuels, yearsOfProduction } from '@/constants';
 
-import { CarCard, Filter, Hero, SearchBar } from '@/components';
+import { CarCard, Filter, Hero, SearchBar, ShowMore } from '@/components';
 
 const Home = async ({ searchParams }) => {
   const allCars = await fetchCars({
@@ -36,6 +36,7 @@ const Home = async ({ searchParams }) => {
                 return <CarCard key={index} car={car} />;
               })}
             </div>
+            <ShowMore />
           </section>
         ) : (
           <div className='home__error-container'>
