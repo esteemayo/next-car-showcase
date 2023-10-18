@@ -42,14 +42,14 @@ const Filter: FC<CarFilterProps> = ({ title, options }) => {
           >
             <Listbox.Options className='custom-filter__options'>
               {options.map((option) => {
-                const { title, value } = option;
+                const { title } = option;
                 return (
                   <Listbox.Option
                     key={title}
                     value={option}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 px-4 ${
-                        active ? 'bg-primary-blue' : 'text-gray-900'
+                        active ? 'bg-primary-blue text-white' : 'text-gray-900'
                       }`
                     }
                   >
