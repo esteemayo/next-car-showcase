@@ -2,12 +2,15 @@
 
 import { FC } from 'react';
 
-import { Footer, Navbar } from '.';
 import { LayoutProps } from '@/types';
+import ToastProvider from '@/providers/ToastProvider';
+
+import { Footer, Navbar } from './';
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
+      <ToastProvider />
       <Navbar />
       {children}
       <Footer />
