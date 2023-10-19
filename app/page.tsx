@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 
 import { fetchCars } from '@/utils';
@@ -58,28 +59,44 @@ const Home = () => {
           <p>Explore the cars you might like</p>
         </div>
         <div className='home__filters'>
-          <SearchBar />
+          <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
           <div className='home__filter-container'>
-            <Filter title='fuel' options={fuels} />
-            <Filter title='year' options={yearsOfProduction} />
+            <Filter title='fuel' options={fuels} setFilter={setFuel} />
+            <Filter
+              title='year'
+              options={yearsOfProduction}
+              setFilter={setYear}
+            />
           </div>
         </div>
-        {!isDataEmpty ? (
+        {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
               {allCars.map((car, index) => {
                 return <CarCard key={index} car={car} />;
               })}
             </div>
+            {loading && (
+              <div className='mt-16 w-full flex-center'>
+                <Image
+                  src='/svg/loader.svg'
+                  width={50}
+                  height={50}
+                  alt='loader'
+                  className='object-contain'
+                />
+              </div>
+            )}
             <ShowMore
-              pageNumber={(limit || 10) / 10}
-              isNext={(limit || 10) > allCars.length}
+              pageNumber={limit / 10}
+              isNext={limit > allCars.length}
+              setLimit={setLimit}
             />
           </section>
         ) : (
           <div className='home__error-container'>
             <h2 className='text-black text-xl'>Oops, no results</h2>
-            <p>{allCars?.message}</p>
+            {/* <p>{allCars?.message}</p> */}
           </div>
         )}
       </div>
