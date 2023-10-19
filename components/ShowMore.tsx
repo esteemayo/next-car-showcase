@@ -1,17 +1,14 @@
 'use client';
 
 import { FC, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-
-import { ShowMoreProps } from '@/types';
-import { updateSearchParams } from '@/utils';
 
 import { Button } from './';
+import { ShowMoreProps } from '@/types';
 
-const ShowMore: FC<ShowMoreProps> = ({ pageNumber, isNext,setLimit }) => {
+const ShowMore: FC<ShowMoreProps> = ({ pageNumber, isNext, setLimit }) => {
   const handleNavigation = useCallback(() => {
     const newLimit = (pageNumber + 1) * 10;
-    setLimit(newLimit)
+    setLimit(newLimit);
   }, []);
 
   return (
