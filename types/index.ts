@@ -77,4 +77,5 @@ export interface FilterProps {
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit(value: number): void;
 }
