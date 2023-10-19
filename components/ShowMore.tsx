@@ -8,14 +8,10 @@ import { updateSearchParams } from '@/utils';
 
 import { Button } from './';
 
-const ShowMore: FC<ShowMoreProps> = ({ pageNumber, isNext }) => {
-  const router = useRouter();
-
+const ShowMore: FC<ShowMoreProps> = ({ pageNumber, isNext,setLimit }) => {
   const handleNavigation = useCallback(() => {
     const newLimit = (pageNumber + 1) * 10;
-    const newPathname = updateSearchParams('limit', `${newLimit}`);
-
-    router.push(newPathname);
+    setLimit(newLimit)
   }, []);
 
   return (
