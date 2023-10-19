@@ -4,14 +4,15 @@ import Image from 'next/image';
 import { FormEvent, useCallback, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { FC } from 'react';
 
 import { SearchButton, SearchManufacturer } from './';
 
-const SearchBar = () => {
+const SearchBar: FC = ({ setManufacturer, setModel }) => {
   const router = useRouter();
 
-  const [model, setModel] = useState('');
-  const [manufacturer, setManufacturer] = useState('');
+  const [searchModel, setSearchModel] = useState('');
+  const [searchManufacturer, setSearchManufacturer] = useState('');
 
   const updateSearchParams = useCallback(
     (model: string, manufacturer: string) => {
@@ -41,19 +42,20 @@ const SearchBar = () => {
   const handleSearch = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (manufacturer === '' && model === '') {
+    if (searchManufacturer === '' && searchModel === '') {
       return toast.error('Please fill in the search bar');
     }
 
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    setModel(searchModel);
+    setManufacturer(searchManufacturer);
   }, []);
 
   return (
     <form className='searchbar' onSubmit={handleSearch}>
       <div className='searchbar__item'>
         <SearchManufacturer
-          manufacturer={manufacturer}
-          setManufacturer={setManufacturer}
+          manufacturer={searchManufacturer}
+          setManufacturer={setSearchManufacturer}
         />
         <SearchButton otherClasses='sm:hidden' />
       </div>
@@ -68,8 +70,8 @@ const SearchBar = () => {
         <input
           type='text'
           name='model'
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
+          value={searchModel}
+          onChange={(e) => setSearchModel(e.target.value)}
           placeholder='Tiguan'
           className='searchbar__input'
         />
