@@ -6,9 +6,10 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 
+import { SearchBarProps } from '@/types';
 import { SearchButton, SearchManufacturer } from './';
 
-const SearchBar: FC = ({ setManufacturer, setModel }) => {
+const SearchBar: FC<SearchBarProps> = ({ setManufacturer, setModel }) => {
   const router = useRouter();
 
   const [searchModel, setSearchModel] = useState('');
