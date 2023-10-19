@@ -24,6 +24,11 @@ export interface CarFilterProps {
   options: OptionProps[];
 }
 
+export interface SearchBarProps {
+  setManufacturer(manufacturer: string): void;
+  setModel(model: string): void;
+}
+
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer(manufacturer: string): void;
