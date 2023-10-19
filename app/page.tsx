@@ -36,7 +36,10 @@ const Home = async ({ searchParams }) => {
                 return <CarCard key={index} car={car} />;
               })}
             </div>
-            <ShowMore />
+            <ShowMore
+              pageNumber={(searchParams.pageNumber || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className='home__error-container'>
