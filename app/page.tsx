@@ -1,18 +1,53 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+
 import { fetchCars } from '@/utils';
 import { fuels, yearsOfProduction } from '@/constants';
 
 import { CarCard, Filter, Hero, SearchBar, ShowMore } from '@/components';
 
-const Home = async ({ searchParams }) => {
-  const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer || '',
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || '',
-    limit: searchParams.limit || 10,
-    model: searchParams.model || '',
-  });
+const Home = () => {
+  const params = useSearchParams();
+
+  const [allCars, setAllCars] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // search state
+  const [model, setModel] = useState('');
+  const [manufacturer, setManufacturer] = useState('');
+
+  // filter state
+  const [fuel, setFuel] = useState('');
+  const [year, setYear] = useState(2022);
+
+  // pagination states
+  const [limit, setLimit] = useState(10);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+
+      try {
+        const res = await fetchCars({
+          manufacturer: manufacturer || '',
+          year: year || 2022,
+          fuel: fuel || '',
+          limit: limit || 10,
+          model: model || '',
+        });
+
+        setAllCars(res);
+      } catch (err: any) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
   return (
     <main className='overflow-hidden'>
@@ -37,8 +72,8 @@ const Home = async ({ searchParams }) => {
               })}
             </div>
             <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allCars.length}
+              pageNumber={(limit || 10) / 10}
+              isNext={(limit || 10) > allCars.length}
             />
           </section>
         ) : (
