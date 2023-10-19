@@ -22,6 +22,7 @@ export interface OptionProps {
 export interface CarFilterProps {
   title: string;
   options: OptionProps[];
+  setFilter(filter: any): void;
 }
 
 export interface SearchBarProps {
