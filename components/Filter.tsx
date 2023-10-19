@@ -1,24 +1,14 @@
 'use client';
 
-import { FC, Fragment, useCallback, useState } from 'react';
+import { FC, Fragment, useState } from 'react';
 import Image from 'next/image';
 import { Listbox, Transition } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 
 import { CarFilterProps } from '@/types';
-import { updateSearchParams } from '@/utils';
 
-const Filter: FC<CarFilterProps> = ({ title, options }) => {
-  const router = useRouter();
+const Filter: FC<CarFilterProps> = ({ title, options, setFilter }) => {
   const [selected, setSelected] = useState(options[0]);
-
-  const handleUpdateParams = useCallback(
-    (e: { title: string; value: string }) => {
-      const newPathname = updateSearchParams(title, e.value.toLowerCase());
-      router.push(newPathname);
-    },
-    [router]
-  );
 
   return (
     <div className='w-fit'>
@@ -26,7 +16,7 @@ const Filter: FC<CarFilterProps> = ({ title, options }) => {
         value={selected}
         onChange={(e) => {
           setSelected(e);
-          handleUpdateParams(e);
+          setFilter(e.value);
         }}
       >
         <div className='relative w-fit z-10'>
