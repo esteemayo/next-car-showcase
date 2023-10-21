@@ -23,8 +23,6 @@ const Home = () => {
   // pagination states
   const [limit, setLimit] = useState(10);
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-
   useEffect(() => {
     (async () => {
       setLoading(true);
