@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { fetchCars } from '@/utils';
 import { fuels, yearsOfProduction } from '@/constants';
@@ -10,8 +9,6 @@ import { fuels, yearsOfProduction } from '@/constants';
 import { CarCard, Filter, Hero, SearchBar, ShowMore } from '@/components';
 
 const Home = () => {
-  const params = useSearchParams();
-
   const [allCars, setAllCars] = useState([]);
   const [loading, setLoading] = useState(false);
 
