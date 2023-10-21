@@ -3,7 +3,6 @@
 import { FC, Fragment, useState } from 'react';
 import Image from 'next/image';
 import { Listbox, Transition } from '@headlessui/react';
-import { useRouter } from 'next/navigation';
 
 import { CarFilterProps } from '@/types';
 
